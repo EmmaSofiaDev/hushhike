@@ -1,0 +1,2065 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-deep: #050806;
+  --bg-surface: #0a110d;
+  --bg-surface-elevated: #111a14;
+  --bg-glass: rgba(10, 17, 13, 0.75);
+  --bg-card: rgba(15, 24, 18, 0.6);
+  
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --border-active: rgba(0, 245, 160, 0.45);
+  --border-amber: rgba(255, 170, 64, 0.45);
+  --border-crimson: rgba(255, 51, 75, 0.5);
+
+  --accent-mint: #00f5a0;
+  --accent-mint-glow: rgba(0, 245, 160, 0.35);
+  --accent-amber: #ffaa40;
+  --accent-amber-glow: rgba(255, 170, 64, 0.35);
+  --accent-crimson: #ff334b;
+  --accent-crimson-glow: rgba(255, 51, 75, 0.4);
+
+  --text-white: #ffffff;
+  --text-body: #a3b8ac;
+  --text-muted: #5e7568;
+  --text-dim: #38493f;
+
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 245, 160, 0.08), transparent 60%),
+    radial-gradient(circle at 80% 25%, rgba(255, 170, 64, 0.04), transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   HEADER NAVIGATION (SWISS MINIMALIST FLOATING ISLAND)
+   ========================================================================== */
+.hushhike-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-glass);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.9rem 2.5rem;
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, rgba(0, 245, 160, 0.2), rgba(255, 170, 64, 0.1));
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-mint);
+  box-shadow: 0 0 20px var(--accent-mint-glow);
+}
+
+.brand-logo-text {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-white);
+}
+
+.brand-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-amber);
+  background: rgba(255, 170, 64, 0.1);
+  border: 1px solid rgba(255, 170, 64, 0.25);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 0.75rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.nav-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  background: rgba(0, 245, 160, 0.07);
+  color: var(--accent-mint);
+  border: 1px solid rgba(0, 245, 160, 0.25);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-mint);
+  box-shadow: 0 0 12px var(--accent-mint);
+  animation: pulseGlow 1.8s infinite;
+}
+
+.pulse-dot-small {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: pulseGlow 1.8s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.35; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   ROUTE SELECTOR BAR
+   ========================================================================== */
+.route-selector-bar {
+  max-width: 1440px;
+  margin: 1.5rem auto 0;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.segmented-pills {
+  display: flex;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  gap: 4px;
+}
+
+.pill-item {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pill-item:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pill-item.active {
+  background: var(--bg-surface-elevated);
+  color: var(--accent-mint);
+  border: 1px solid var(--border-active);
+  box-shadow: 0 0 16px var(--accent-mint-glow);
+}
+
+.quick-telemetry-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-body);
+}
+
+.strip-item .val {
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MAIN COCKPIT LAYOUT (GRAND, SPACIOUS, UNCLUTTERED)
+   ========================================================================== */
+.cockpit-main {
+  max-width: 1440px;
+  margin: 1.5rem auto 4rem;
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   STAGE 1: 3D ALPINESCAPE HERO CINEMATIC VIEWPORT
+   ========================================================================== */
+.alpine-hero-container {
+  background: radial-gradient(circle at 50% 60%, rgba(0, 245, 160, 0.06), rgba(6, 12, 8, 0.98));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.alpine-hud-header {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.hud-metric-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hud-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(10, 17, 13, 0.85);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(10px);
+  color: var(--text-body);
+}
+
+.hud-pill.alert {
+  border-color: var(--border-crimson);
+  color: var(--accent-crimson);
+}
+
+.hud-pill.safe {
+  border-color: rgba(0, 245, 160, 0.3);
+  color: var(--accent-mint);
+}
+
+.hud-engine-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-mint);
+  background: rgba(0, 245, 160, 0.08);
+  border: 1px solid rgba(0, 245, 160, 0.25);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+/* Reticle Corner Brackets */
+.alpine-reticles .reticle {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: rgba(0, 245, 160, 0.35);
+  line-height: 1;
+  z-index: 10;
+  pointer-events: none;
+}
+.alpine-reticles .reticle.top-left { top: 12px; left: 16px; }
+.alpine-reticles .reticle.top-right { top: 12px; right: 16px; }
+.alpine-reticles .reticle.bottom-left { bottom: 12px; left: 16px; }
+.alpine-reticles .reticle.bottom-right { bottom: 12px; right: 16px; }
+
+.alpine-canvas-mount {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.alpine-canvas-mount:active {
+  cursor: grabbing;
+}
+
+.alpine-hud-footer {
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.hud-footer-item {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.hud-footer-item .lbl {
+  color: var(--text-dim);
+}
+
+.hud-footer-item .val {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.drag-hint {
+  color: var(--accent-mint);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* 3D Alpine Three.js Canvas */
+.alpine-3d-wrapper {
+  background: radial-gradient(circle at 50% 60%, rgba(0, 245, 160, 0.05), rgba(7, 13, 9, 0.95));
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.alpine-canvas-mount {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.alpine-canvas-mount:active {
+  cursor: grabbing;
+}
+
+/* ==========================================================================
+   SOLAR SAFETY RIBBON (HIGH-IMPACT HORIZONTAL STRIP)
+   ========================================================================== */
+.solar-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 1.3fr;
+  gap: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.cell-val {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+}
+
+.cell-val.mint { color: var(--accent-mint); }
+.cell-val.amber { color: var(--accent-amber); }
+.cell-val.crimson { color: var(--accent-crimson); text-shadow: 0 0 12px var(--accent-crimson-glow); }
+
+/* ==========================================================================
+   STAGE 2: TWO-COLUMN TACTILE INSTRUMENT DECK
+   ========================================================================== */
+.cockpit-deck-grid {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .cockpit-deck-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.deck-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* CARDS & PANELS */
+.card-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.title-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-white);
+}
+
+.mono-spec {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* QUICK TIME PICKER PILLS */
+.quick-time-presets {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.time-preset-pill {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-preset-pill:hover {
+  color: var(--text-white);
+  border-color: var(--border-glass);
+}
+
+.time-preset-pill.active {
+  background: rgba(0, 245, 160, 0.1);
+  color: var(--accent-mint);
+  border-color: var(--border-active);
+}
+
+/* TACTILE RANGE SLIDERS */
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+.input-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.input-label .val-tag {
+  color: var(--accent-amber);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.custom-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #142218;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-mint);
+  cursor: pointer;
+  box-shadow: 0 0 12px var(--accent-mint);
+  border: 2px solid #050806;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 18px var(--accent-mint);
+}
+
+.custom-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-mint);
+  cursor: pointer;
+  box-shadow: 0 0 12px var(--accent-mint);
+  border: 2px solid #050806;
+}
+
+.tactile-time-input {
+  width: 100%;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tactile-time-input:focus {
+  border-color: var(--accent-mint);
+  box-shadow: 0 0 14px var(--accent-mint-glow);
+}
+
+/* TACTILE 3-WAY SEGMENTED SELECTOR */
+.segmented-class-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.class-pill-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 6px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.class-pill-btn:hover {
+  color: var(--text-white);
+}
+
+.class-pill-btn.active {
+  background: var(--bg-surface);
+  color: var(--accent-amber);
+  border: 1px solid var(--border-amber);
+  box-shadow: 0 0 10px var(--accent-amber-glow);
+}
+
+.headlamp-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  font-size: 0.78rem;
+  color: var(--text-body);
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  user-select: none;
+  font-weight: 500;
+}
+
+.headlamp-toggle input {
+  accent-color: var(--accent-mint);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   ACOUSTIC RANGER DISPATCH CARD
+   ========================================================================== */
+.ranger-audio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.waveform-strip {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.wave-bar {
+  width: 3.5px;
+  height: 8px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: height 0.1s ease, background-color 0.2s ease;
+}
+
+.wave-bar.active {
+  background: var(--accent-amber);
+  box-shadow: 0 0 10px var(--accent-amber-glow);
+  animation: waveDance 0.35s infinite alternate;
+}
+
+@keyframes waveDance {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1.4); }
+}
+
+.audio-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.btn-play-tactical {
+  background: linear-gradient(135deg, var(--accent-amber), #d99200);
+  color: #050806;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-play-tactical:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 18px var(--accent-amber-glow);
+}
+
+.btn-play-tactical.playing {
+  background: linear-gradient(135deg, var(--accent-mint), #00c77f);
+  box-shadow: 0 0 18px var(--accent-mint-glow);
+}
+
+.audio-timer {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.ranger-quote-box {
+  border-left: 2px solid var(--accent-mint);
+  background: rgba(0, 245, 160, 0.03);
+  padding: 0.75rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  border-radius: 0 6px 6px 0;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   TACTILE 3X5 POCKET FIELD CARD
+   ========================================================================== */
+.pocket-card-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.pocket-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pocket-card-title-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-white);
+  letter-spacing: 0.08em;
+}
+
+.pocket-card-btn-group {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.tactile-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-body);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.tactile-btn:hover {
+  border-color: var(--accent-mint);
+  color: var(--text-white);
+}
+
+/* PHYSICAL 3X5 INDEX CARD (LEICA / FIELD NOTES PARCHMENT) */
+.tactile-index-card {
+  background: #0d1510;
+  border: 1.5px solid rgba(255, 170, 64, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  position: relative;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.7rem;
+}
+
+.card-serial {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.card-depart {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+}
+
+.card-header-main {
+  margin-bottom: 0.85rem;
+}
+
+.card-trail-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-specs {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-body);
+}
+
+.card-solar-envelope {
+  background: rgba(0, 245, 160, 0.05);
+  border: 1px solid rgba(0, 245, 160, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.card-solar-envelope.deficit {
+  background: rgba(255, 51, 75, 0.08);
+  border-color: rgba(255, 51, 75, 0.4);
+}
+
+.solar-banner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+}
+
+.solar-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.solar-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.solar-item .label {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+.solar-item .val {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.solar-item .val.highlight { color: var(--accent-amber); }
+.solar-item .val.alert { color: var(--accent-crimson); }
+
+.solar-banner-instruction {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.card-waypoints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.waypoints-subhead {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.card-waypoint-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.68rem;
+}
+
+.wp-badge {
+  width: 18px;
+  height: 18px;
+  background: var(--accent-amber);
+  color: #050806;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.62rem;
+  flex-shrink: 0;
+}
+
+.wp-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wp-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wp-title {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.wp-eta {
+  color: var(--accent-amber);
+}
+
+.wp-instruction {
+  color: var(--text-muted);
+  font-size: 0.62rem;
+}
+
+.card-footer {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  text-align: center;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   STAGE 3: FULL-WIDTH TOPOGRAPHIC ELEVATION PROFILE
+   ========================================================================== */
+.elevation-chart-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-white);
+}
+
+.chart-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.metric-pill {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.metric-pill.alert {
+  border-color: var(--border-crimson);
+  color: var(--accent-crimson);
+}
+
+.metric-pill.safe {
+  border-color: rgba(0, 245, 160, 0.3);
+  color: var(--accent-mint);
+}
+
+.svg-chart-wrapper {
+  width: 100%;
+  height: 240px;
+}
+
+.elevation-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.chart-scrubber {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.scrubber-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.scrubber-value {
+  color: var(--accent-mint);
+  font-weight: 700;
+}
+
+.scrubber-slider {
+  width: 100%;
+  accent-color: var(--accent-mint);
+}
+
+.scrubber-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.65rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.legend-dot.green { background-color: var(--accent-mint); }
+.legend-dot.amber { background-color: var(--accent-amber); }
+.legend-dot.teal { background-color: #38bdf8; }
+
+/* ==========================================================================
+   WAYPOINT LANDMARKS HORIZONTAL DECK
+   ========================================================================== */
+.landmarks-deck {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.landmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .landmarks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .landmarks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.landmark-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.landmark-card:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 0 14px var(--accent-mint-glow);
+}
+
+.l-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l-num-badge {
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 245, 160, 0.12);
+  border: 1px solid var(--border-active);
+  color: var(--accent-mint);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.l-card-eta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.l-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.l-card-cue {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   NAVIGATION MENU LINKS
+   ========================================================================== */
+.nav-links-menu {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 3px;
+}
+
+.nav-menu-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.nav-menu-link:hover {
+  color: var(--text-white);
+  background: var(--bg-surface-elevated);
+}
+
+.nav-menu-link.active {
+  color: var(--accent-mint);
+  background: rgba(0, 245, 160, 0.1);
+  border: 1px solid var(--border-active);
+  box-shadow: 0 0 12px var(--accent-mint-glow);
+}
+
+@media (max-width: 768px) {
+  .nav-links-menu {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   FIELD NAV MODE & INSTRUMENTS
+   ========================================================================== */
+.field-mode-root {
+  min-height: 100vh;
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+/* Tactical Monochromatic Crimson Night Red HUD */
+.field-mode-root.red-vision {
+  background-color: #0c0203 !important;
+  color: #ff334b !important;
+}
+
+.field-mode-root.red-vision .hushhike-nav {
+  background: rgba(18, 2, 4, 0.85) !important;
+  border-bottom-color: rgba(255, 51, 75, 0.3) !important;
+}
+
+.field-mode-root.red-vision .card-panel,
+.field-mode-root.red-vision .gps-telemetry-box,
+.field-mode-root.red-vision .stepper-item,
+.field-mode-root.red-vision .segmented-pills,
+.field-mode-root.red-vision .pill-item {
+  background-color: #160305 !important;
+  border-color: rgba(255, 51, 75, 0.25) !important;
+  color: #ff556b !important;
+}
+
+.field-mode-root.red-vision .text-mint,
+.field-mode-root.red-vision .text-amber,
+.field-mode-root.red-vision .val,
+.field-mode-root.red-vision .brand-logo-text,
+.field-mode-root.red-vision .stepper-title {
+  color: #ff334b !important;
+}
+
+.field-mode-root.red-vision .brand-icon-box {
+  background: rgba(255, 51, 75, 0.2) !important;
+  border-color: #ff334b !important;
+  color: #ff334b !important;
+  box-shadow: 0 0 16px rgba(255, 51, 75, 0.4) !important;
+}
+
+.field-mode-root.red-vision .tactile-btn {
+  background: rgba(255, 51, 75, 0.1) !important;
+  border-color: rgba(255, 51, 75, 0.4) !important;
+  color: #ff334b !important;
+}
+
+.field-mode-root.red-vision .compass-dial {
+  border-color: rgba(255, 51, 75, 0.5) !important;
+}
+
+.field-mode-root.red-vision .compass-needle {
+  background: #ff334b !important;
+  box-shadow: 0 0 14px rgba(255, 51, 75, 0.8) !important;
+}
+
+/* Compass Instrument Dial */
+.compass-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.compass-dial-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 1.5rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-dial {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--border-active);
+  background: radial-gradient(circle, rgba(17, 26, 20, 0.85) 0%, rgba(10, 17, 13, 0.95) 75%);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-mint-glow);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.compass-mark {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.compass-mark.north {
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-crimson);
+  font-size: 0.85rem;
+}
+
+.compass-mark.east {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.compass-mark.south {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.compass-mark.west {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.compass-needle {
+  position: absolute;
+  width: 3px;
+  height: 90px;
+  left: calc(50% - 1.5px);
+  top: 30px;
+  background: linear-gradient(to bottom, var(--accent-crimson) 50%, var(--accent-mint) 50%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--accent-mint);
+}
+
+.compass-target-bug {
+  position: absolute;
+  inset: -10px;
+  pointer-events: none;
+}
+
+.bug-marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-amber);
+  font-size: 14px;
+  text-shadow: 0 0 8px var(--accent-amber-glow);
+}
+
+.compass-digital-readout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.bearing-val {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1;
+}
+
+.bearing-cardinal {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-mint);
+  margin-top: 2px;
+  letter-spacing: 0.08em;
+}
+
+.bearing-steering-hint {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.steering-directive {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: rgba(0, 245, 160, 0.15);
+  border: 1px solid var(--border-active);
+  color: var(--accent-mint);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* GPS Telemetry Box */
+.gps-telemetry-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 1.25rem;
+}
+
+.gps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gps-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-white);
+}
+
+.gps-btn-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.gps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.gps-cell {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gps-cell.full-width {
+  grid-column: span 2;
+}
+
+.gps-cell .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.gps-cell .val {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+/* Countdown Panel */
+.countdown-panel {
+  border-color: rgba(255, 170, 64, 0.3);
+}
+
+.countdown-panel.deficit {
+  border-color: var(--border-crimson);
+  background: linear-gradient(180deg, rgba(255, 51, 75, 0.08) 0%, var(--bg-surface) 100%);
+}
+
+.dusk-countdown-banner {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.countdown-number {
+  font-family: var(--font-mono);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--accent-amber);
+  line-height: 1;
+}
+
+.countdown-panel.deficit .countdown-number {
+  color: var(--accent-crimson);
+}
+
+.countdown-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.solar-mandate-box {
+  font-size: 0.75rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  background: rgba(255, 51, 75, 0.08);
+  border: 1px solid rgba(255, 51, 75, 0.3);
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.mandate-highlight {
+  font-weight: 800;
+  color: var(--accent-crimson);
+  font-family: var(--font-mono);
+}
+
+/* Waypoint Stepper List */
+.waypoint-stepper-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.stepper-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stepper-item:hover {
+  border-color: var(--border-active);
+}
+
+.stepper-item.reached {
+  opacity: 0.55;
+  background: rgba(10, 17, 13, 0.5);
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+.stepper-item.active-target {
+  border-color: var(--border-active);
+  background: rgba(0, 245, 160, 0.04);
+  box-shadow: 0 0 15px var(--accent-mint-glow);
+}
+
+.stepper-badge {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-active);
+  color: var(--accent-mint);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-item.reached .stepper-badge {
+  background: var(--accent-mint);
+  color: #000;
+  border-color: var(--accent-mint);
+}
+
+.stepper-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stepper-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepper-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.target-pill {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  background: rgba(0, 245, 160, 0.2);
+  color: var(--accent-mint);
+  border: 1px solid var(--border-active);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.stepper-alt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.stepper-cue {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.stepper-coords {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--accent-mint);
+  margin-top: 2px;
+}
+
+/* SOS Beacon Button & Optical Strobe */
+.sos-btn.sounding {
+  background: var(--accent-crimson) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-crimson) !important;
+  box-shadow: 0 0 25px var(--accent-crimson-glow);
+  animation: beaconPulse 0.8s infinite alternate;
+}
+
+@keyframes beaconPulse {
+  from { transform: scale(1); box-shadow: 0 0 10px var(--accent-crimson-glow); }
+  to { transform: scale(1.05); box-shadow: 0 0 35px var(--accent-crimson); }
+}
+
+.sos-strobe-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: visualStrobe 0.25s infinite alternate;
+}
+
+@keyframes visualStrobe {
+  0% { background: #ffffff; color: #ff0022; }
+  100% { background: #ff0022; color: #ffffff; }
+}
+
+.strobe-inner {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: var(--radius-lg);
+  border: 2px solid #ffffff;
+}
+
+.strobe-text {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
+}
+
+.strobe-sub {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #ffaa40;
+  margin-top: 0.5rem;
+}
+
+/* Add Custom Waypoint Modal */
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.custom-modal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 520px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.modal-input {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.modal-input:focus {
+  border-color: var(--border-active);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.coords-dual-input {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   3×5 CARD STUDIO STYLES
+   ========================================================================== */
+.card-studio-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .card-studio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-customizer-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field-instructions-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.inst-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-amber);
+  margin-bottom: 0.5rem;
+}
+
+.inst-list {
+  list-style: none;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.custom-text-input {
+  width: 100%;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-white);
+  outline: none;
+}
+
+.custom-text-input:focus {
+  border-color: var(--border-active);
+}
+
+.card-emergency-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 170, 64, 0.08);
+  border: 1px dashed rgba(255, 170, 64, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  margin-top: 0.75rem;
+}
+
+/* High Contrast Ink Saver Mode */
+.tactile-index-card.ink-saver {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.tactile-index-card.ink-saver * {
+  color: #000000 !important;
+}
+
+.tactile-index-card.ink-saver .card-topbar {
+  background: #f0f0f0 !important;
+  border-bottom: 1px solid #000000 !important;
+}
+
+.tactile-index-card.ink-saver .card-solar-envelope {
+  background: #f7f7f7 !important;
+  border: 1.5px solid #000000 !important;
+}
+
+.tactile-index-card.ink-saver .wp-badge {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.tactile-index-card.ink-saver .card-emergency-strip {
+  background: #f2f2f2 !important;
+  border: 1px dashed #000000 !important;
+}
+
+/* ==========================================================================
+   PHYSICS ENGINE & SIMULATOR STYLES
+   ========================================================================== */
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .simulator-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sim-outputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.out-cell {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.out-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.out-val {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 3px 0;
+}
+
+.out-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.formula-box {
+  background: var(--bg-surface-elevated);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+}
+
+.mandate-alert-box {
+  background: rgba(255, 51, 75, 0.08);
+  border: 1px solid rgba(255, 51, 75, 0.3);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--accent-crimson);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   PRINT MEDIA OPTIMIZATION (EXACT 3×5 INCH PHYSICAL CARD)
+   ========================================================================== */
+@media print {
+  @page {
+    size: 5in 3in landscape;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    background-image: none !important;
+  }
+
+  .hushhike-nav,
+  .route-selector-bar,
+  .pocket-card-actions,
+  .card-customizer-box,
+  .nav-links-menu {
+    display: none !important;
+  }
+
+  .card-studio-grid {
+    display: block !important;
+  }
+
+  .cockpit-main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .pocket-card-container {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .tactile-index-card {
+    box-shadow: none !important;
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .tactile-index-card * {
+    color: #000000 !important;
+  }
+}
