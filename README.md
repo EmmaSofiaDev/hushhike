@@ -5,7 +5,11 @@
 [![Deploy on Render](https://img.shields.io/badge/Render-Blueprint%20Ready-E5A93C.svg)](https://render.com)
 [![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs%20Acoustic-blue.svg)](https://elevenlabs.io)
 [![Agent: Mastra](https://img.shields.io/badge/Agent-Mastra%20Workflow-purple.svg)](https://mastra.ai)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-22c55e.svg)](https://emmasofiadev.github.io/hushhike/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
+
+* 🚀 **GitHub Pages Live Demo:** [https://emmasofiadev.github.io/hushhike/](https://emmasofiadev.github.io/hushhike/)
+* 🌐 **Render Cloud Service (Blueprint):** [https://hushhike.onrender.com](https://hushhike.onrender.com)
 
 > **Build something with open-source AI at its core that gets people off the screen and into the world.**  
 > *HushHike solves the smartphone leash on wilderness trails. In 30 seconds at the trailhead, it synthesizes terrain elevation, solar dusk deadlines, and waypoint landmarks into an acoustic ranger dispatch and a high-contrast 3×5 pocket card—so you can lock your phone in your backpack and navigate by sound and natural landmarks.*
