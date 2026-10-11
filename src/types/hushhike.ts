@@ -36,6 +36,7 @@ export interface TrailTelemetry {
   waterCarriedL: number;
   ruggedness: RuggednessTier;
   hasHeadlamp: boolean;
+  hasEmergencyBivy?: boolean;
 }
 
 export interface SolarCalculationResult {

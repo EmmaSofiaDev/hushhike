@@ -8,12 +8,14 @@
     "start": "next start -p 3000"
   },
   "dependencies": {
+    "@mastra/core": "^1.75.0",
     "@types/three": "^0.186.0",
     "lucide-react": "^1.52.0",
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "three": "^0.186.1"
+    "three": "^0.186.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/node": "^20",

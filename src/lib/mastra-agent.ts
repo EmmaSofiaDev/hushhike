@@ -122,3 +122,49 @@ export function executeMastraWorkflow(
     },
   };
 }
+
+/**
+ * Invokes the server-side Mastra Agent Workflow (/api/dispatch)
+ */
+export async function fetchMastraDispatch(
+  telemetry: TrailTelemetry,
+  solar: SolarCalculationResult,
+  presetWaypoints: Waypoint[]
+): Promise<MastraDispatchResult> {
+  try {
+    const res = await fetch("/api/dispatch", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        trailName: telemetry.trailName,
+        departureTime: telemetry.departureTime,
+        distanceKm: telemetry.distanceKm,
+        elevationGainM: telemetry.elevationGainM,
+        waterCarriedL: telemetry.waterCarriedL,
+        hasHeadlamp: telemetry.hasHeadlamp,
+        hasEmergencyBivy: telemetry.hasEmergencyBivy,
+        ruggedness: telemetry.ruggedness,
+        hikingPaceMinKm: telemetry.hikingPaceMinKm,
+      }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data?.result) {
+        return {
+          ...data.result,
+          offlineTactileCardData: {
+            ...data.result.offlineTactileCardData,
+            waypoints: presetWaypoints,
+          },
+        };
+      }
+    }
+  } catch (err) {
+    console.warn("Mastra server dispatch unavailable, falling back to local workflow:", err);
+  }
+
+  // Resilient fallback to local workflow calculation
+  return executeMastraWorkflow(telemetry, solar, presetWaypoints);
+}
+
