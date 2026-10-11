@@ -1,12 +1,14 @@
 # HushHike 🌲 // The Screenless 30-Second Wilderness Dispatcher
 
-[![Hacktoberfest 2026](https://i.imgur.com/OPaqsZ9.png)](https://dev.to/challenges/hf26)
-[![Theme: Touch Grass](https://i.imgur.com/o8XloRa.png)](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)
-[![Deploy on Render](https://i.imgur.com/paaSQTo.png)](https://render.com)
-[![Voice: ElevenLabs](https://i.imgur.com/YwRDbC4.png)](https://elevenlabs.io)
-[![Agent: Mastra](https://i.imgur.com/dCLERz3.png)](https://mastra.ai)
-[![GitHub Pages](https://i.imgur.com/74lGqCE.png)](https://emmasofiadev.github.io/hushhike/)
-[![License: MIT](https://i.imgur.com/qW0bnx1.png)](LICENSE)
+<p align="left">
+  <a href="https://dev.to/challenges/hf26"><img src="https://i.imgur.com/OPaqsZ9.png" height="20" alt="Hacktoberfest 2026" /></a>
+  <a href="https://dev.to/challenges/hacktoberfest-week1-2026-10-05"><img src="https://i.imgur.com/o8XloRa.png" height="20" alt="Theme: Touch Grass" /></a>
+  <a href="https://render.com"><img src="https://i.imgur.com/paaSQTo.png" height="20" alt="Deploy on Render" /></a>
+  <a href="https://elevenlabs.io"><img src="https://i.imgur.com/YwRDbC4.png" height="20" alt="Voice: ElevenLabs" /></a>
+  <a href="https://mastra.ai"><img src="https://i.imgur.com/dCLERz3.png" height="20" alt="Agent: Mastra" /></a>
+  <a href="https://emmasofiadev.github.io/hushhike/"><img src="https://i.imgur.com/74lGqCE.png" height="20" alt="GitHub Pages" /></a>
+  <a href="LICENSE"><img src="https://i.imgur.com/qW0bnx1.png" height="20" alt="License: MIT" /></a>
+</p>
 
 * 🚀 **GitHub Pages Live Demo:** [https://emmasofiadev.github.io/hushhike/](https://emmasofiadev.github.io/hushhike/)
 * 🌐 **Render Cloud Service (Blueprint):** [https://hushhike.onrender.com](https://hushhike.onrender.com)
