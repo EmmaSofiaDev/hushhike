@@ -1,12 +1,12 @@
 # HushHike 🌲 // The Screenless 30-Second Wilderness Dispatcher
 
-[![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-2026%20DEV%20Challenge-orange.svg)](https://dev.to/challenges/hf26)
-[![Theme: Touch Grass](https://img.shields.io/badge/Theme-Touch%20Grass-2DD4BF.svg)](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)
-[![Deploy on Render](https://img.shields.io/badge/Render-Blueprint%20Ready-E5A93C.svg)](https://render.com)
-[![Voice: ElevenLabs](https://img.shields.io/badge/Voice-ElevenLabs%20Acoustic-blue.svg)](https://elevenlabs.io)
-[![Agent: Mastra](https://img.shields.io/badge/Agent-Mastra%20Workflow-purple.svg)](https://mastra.ai)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-22c55e.svg)](https://emmasofiadev.github.io/hushhike/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
+[![Hacktoberfest 2026](https://img.shields.io/badge/Challenge-Hacktoberfest_2026-orange)](https://dev.to/challenges/hf26)
+[![Theme: Touch Grass](https://img.shields.io/badge/Theme-Touch_Grass-2dd4bf)](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)
+[![Deploy on Render](https://img.shields.io/badge/Render-Blueprint_Ready-e5a93c)](https://render.com)
+[![Voice: ElevenLabs](https://img.shields.io/badge/ElevenLabs-Acoustic_Voice-blue)](https://elevenlabs.io)
+[![Agent: Mastra](https://img.shields.io/badge/Mastra-Hazard_Workflow-purple)](https://mastra.ai)
+[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-22c55e)](https://emmasofiadev.github.io/hushhike/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success)](LICENSE)
 
 * 🚀 **GitHub Pages Live Demo:** [https://emmasofiadev.github.io/hushhike/](https://emmasofiadev.github.io/hushhike/)
 * 🌐 **Render Cloud Service (Blueprint):** [https://hushhike.onrender.com](https://hushhike.onrender.com)
